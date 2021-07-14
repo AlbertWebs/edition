@@ -471,6 +471,38 @@
 			 });
 		 </script>
 		{{-- Get Quote --}}
+
+		{{-- Schema --}}
+		<script type='application/ld+json'>
+			{
+			  "@context": "http://www.schema.org",
+			  "@type": "ProfessionalService",
+			  "name": "Edition Investments Limited",
+			  "url": "https://editioninvestments.com",
+			  "logo": "https://editioninvestments.com/uploads/logo/Edition%201-01.png",
+			  "sameAs": [ 
+				"https://web.facebook.com/EditioninvestmentKenya",
+				"https://www.instagram.com/editioninvestments_ke",
+				"https://www.linkedin.com/company/the-edition-investments-limited",
+				"https://twitter.com/EditionInteriors_ke",
+				"https://www.youtube.com/channel/UCdorJ8vefWJxSOSNXVWOSbg"
+			  ],
+			  "priceRange": "$$$$",
+			  "image": "https://editioninvestments.com/uploads/logo/Edition%201-01.png",
+			  "description": "Edition Investments | premier supplier of quality wood based building.",
+			  "address": {
+				 "@type": "PostalAddress",
+				 "streetAddress": "23 Bamburi Rd, Nairobi",
+				 "addressLocality": "Nairobi",
+				 "addressRegion": "Kenya",
+				 "postalCode": "00100",
+				 "addressCountry": "Kenya"
+			  },
+			   "openingHours": "Mo 01:00-01:00 Tu 01:00-01:00 We 01:00-01:00 Th 01:00-01:00 Fr 01:00-01:00 Sa 01:00-01:00 Su 01:00-01:00",
+			   "telephone": "0722 626626"
+			}
+		</script>
+		{{-- Schema --}}
 	<!-- </main> -->
 	</body>
 

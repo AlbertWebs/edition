@@ -164,6 +164,7 @@ class ReplyMessage extends Model
             $message->to($toVariable, $toVariableName)->cc('joshua@editioninvestments.com')->replyTo($email , $name)->subject($subject);
         });
     }
+    
     public static function mailNotificatons($name, $email, $subject, $message, $phone, $service, $type){ 
         //The Generic mailler Goes here
         $messageee = 'Hi Admin, You have Received a Quote Request From '.$name.', Email Address: '.$email.' , Phone number: '.$phone.', Type of Property: '.$type.', Services: '.$service.' ';
@@ -176,7 +177,7 @@ class ReplyMessage extends Model
         );
         $subject = $subject;
         $appName = "Edition Investments Limited";
-        $appEmail = "mail@editioninvestments.com";
+        $appEmail = "info@editioninvestments.com";
     
     
         $FromVariable = $appEmail;

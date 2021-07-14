@@ -533,6 +533,8 @@
 			<!-- End Section Isotop Lastest Project -->
 			
 			<!-- contact -->
+			<?php $SiteSettings = DB::table('sitesettings')->get(); ?>
+			<?php $__currentLoopData = $SiteSettings; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Set): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<!-- breadcrumbs -->
 			<section class="padding-bottom-0">
 				
@@ -544,17 +546,18 @@
 						<!-- Social Media -->
 						<div class="col-lg-4 col-md-12 col-sm-12">
 						<ul class="social">
-							<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-							<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li class="facebook"><a href="<?php echo e($Set->facebook); ?>"><i class="fa fa-facebook"></i></a></li>
+							<li class="twitter"><a href="<?php echo e($Set->twitter); ?>"><i class="fa fa-twitter"></i></a></li>
+							<li class="google-plus"><a href="<?php echo e($Set->google); ?>"><i class="fa fa-google-plus"></i></a></li>
+							<li class="youtube"><a href="<?php echo e($Set->youtube); ?>"><i class="fa fa-youtube-play"></i></a></li>
+							<li class="linkedin"><a href="<?php echo e($Set->linkedin); ?>"><i class="fa fa-linkedin"></i></a></li>
 						</ul>
 						</div>
 						<!-- Social Media -->
 					</div>
 				</div>
 			</section> 
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			<!-- breadcrumbs -->
 			<!-- Map -->
 			<section class="no-padding-bot" style="line-height: 0;">

@@ -531,6 +531,8 @@
 			<!-- End Section Isotop Lastest Project -->
 			
 			<!-- contact -->
+			<?php $SiteSettings = DB::table('sitesettings')->get(); ?>
+			@foreach($SiteSettings as $Set)
 			<!-- breadcrumbs -->
 			<section class="padding-bottom-0">
 				
@@ -542,17 +544,18 @@
 						<!-- Social Media -->
 						<div class="col-lg-4 col-md-12 col-sm-12">
 						<ul class="social">
-							<li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li class="youtube"><a href="#"><i class="fa fa-youtube-play"></i></a></li>
-							<li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li class="facebook"><a href="{{$Set->facebook}}"><i class="fa fa-facebook"></i></a></li>
+							<li class="twitter"><a href="{{$Set->twitter}}"><i class="fa fa-twitter"></i></a></li>
+							<li class="google-plus"><a href="{{$Set->google}}"><i class="fa fa-google-plus"></i></a></li>
+							<li class="youtube"><a href="{{$Set->youtube}}"><i class="fa fa-youtube-play"></i></a></li>
+							<li class="linkedin"><a href="{{$Set->linkedin}}"><i class="fa fa-linkedin"></i></a></li>
 						</ul>
 						</div>
 						<!-- Social Media -->
 					</div>
 				</div>
 			</section> 
+			@endforeach
 			<!-- breadcrumbs -->
 			<!-- Map -->
 			<section class="no-padding-bot" style="line-height: 0;">
