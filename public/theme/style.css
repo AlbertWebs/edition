@@ -11298,11 +11298,11 @@ color: #f26a3f;
 }
 .about-img-services{
   display: block;
-  min-height:365px;
+  height:365px;
   max-width:100%;
   /* max-height:415px; */
   width: auto;
-  height: auto;
+  /* height: auto; */
 }
 
 .theServiceImage{

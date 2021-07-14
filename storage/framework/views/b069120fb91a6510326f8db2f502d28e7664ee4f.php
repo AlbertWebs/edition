@@ -295,11 +295,11 @@
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<div class="element-item  <?php echo e($port->service); ?>">
 										
-										<a class="portfolio-img-demo" href="#"><img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive" alt="Image"></a>
+										<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive" alt="<?php echo e($port->title); ?>"></a>
 									<div class="project-info">
-											<a href="portfolioDetail.html"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
-											<a href="portfolioDetail.html" class="cateProject"><?php echo e($port->location); ?></a>
-											<a href="portfolioDetail.html"><h5 class="title-project text-cap text-cap"><?php echo e($port->service); ?></h5></a>
+											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
+											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>" class="cateProject"><?php echo e($port->location); ?></a>
+											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h5 class="title-project text-cap text-cap"><?php echo e($port->service); ?></h5></a>
 										</div>
 								</div>
                          

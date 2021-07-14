@@ -148,7 +148,7 @@ class ReplyMessage extends Model
         );
         $subject = $subject;
         $appName = "Edition Investments Limited";
-        $appEmail = "mail@editioninvestments.com";
+        $appEmail = "info@editioninvestments.com";
     
     
         $FromVariable = $appEmail;

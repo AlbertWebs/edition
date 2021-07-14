@@ -10,6 +10,9 @@
                         <li>
                             <a href="#">Home</a>
                         </li>
+                        <li>
+                           <a href="{{url('/')}}/portfolio">Portfolio</a>
+                       </li>
                         <li class="active">{{$page_title}}</li>
                     </ol>
                 </div>

@@ -295,11 +295,11 @@
                                 @foreach($Portfolio as $port)
 								<div class="element-item  {{$port->service}}">
 										
-										<a class="portfolio-img-demo" href="#"><img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive" alt="Image"></a>
+										<a class="portfolio-img-demo" href="{{url('/')}}/portfolio/{{$port->slug}}"><img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive" alt="{{$port->title}}"></a>
 									<div class="project-info">
-											<a href="portfolioDetail.html"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
-											<a href="portfolioDetail.html" class="cateProject">{{$port->location}}</a>
-											<a href="portfolioDetail.html"><h5 class="title-project text-cap text-cap">{{$port->service}}</h5></a>
+											<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
+											<a href="{{url('/')}}/portfolio/{{$port->slug}}" class="cateProject">{{$port->location}}</a>
+											<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap">{{$port->service}}</h5></a>
 										</div>
 								</div>
                          
