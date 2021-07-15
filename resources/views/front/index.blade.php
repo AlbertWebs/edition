@@ -231,7 +231,7 @@
                         <?php $Count = 2; ?>
                         @foreach($Services as $services)
 						<!-- Page Content -->
-						<div class="col-md-4 col-sm-6 col-lg-2 theServiceImage wow fadeInRight" data-wow-delay=".{{$Count}}5s" >
+						<div class="col-xm-6 col-md-4 col-sm-6 col-lg-2 theServiceImage wow fadeInRight" data-wow-delay=".{{$Count}}5s" >
 							<div class="icon-holder">
 								<img class="icon-img" src="{{url('/uploads/')}}/services/{{$services->image_two}}" alt="#"> 
 							</div>
@@ -279,11 +279,11 @@
 				<!--  -->
 				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
-                                    <?php $ServicesList = DB::table('services')->get(); ?>
+                                    <?php $ServicesList = DB::table('category')->get(); ?>
                                     
 									<a href="#" data-filter="*" class="current text-cap"><h4>All Projects</h4></a>
                                     @foreach($ServicesList as $serlist)
-									<a href="#" data-filter=".{{$serlist->title}}" class="text-cap"><h4>{{$serlist->title}}</h4></a>
+									<a href="#" data-filter=".cat_{{$serlist->id}}" class="text-cap"><h4>{{$serlist->cat}}</h4></a>
                                     @endforeach
 									
 						</div> <!-- End Project Fillter -->
@@ -293,14 +293,15 @@
 				                <?php $Portfolio = DB::table('portfolio')->limit('6')->get(); ?>
                        
                                 @foreach($Portfolio as $port)
-								<div class="element-item  {{$port->service}}">
-										
-										<a class="portfolio-img-demo" href="{{url('/')}}/portfolio/{{$port->slug}}"><img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive" alt="{{$port->title}}"></a>
+								<div class="element-item cat_{{$port->service}}">
+									<a class="portfolio-img-demo" href="{{url('/')}}/portfolio/{{$port->slug}}">
+										<img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive port-image" alt="{{$port->title}}">
+									</a>
 									<div class="project-info">
-											<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
-											<a href="{{url('/')}}/portfolio/{{$port->slug}}" class="cateProject">{{$port->location}}</a>
-											<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap">{{$port->service}}</h5></a>
-										</div>
+										<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
+										<a href="{{url('/')}}/portfolio/{{$port->slug}}" class="cateProject">{{$port->location}}</a>
+										{{-- <a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap">{{$port->service}}</h5></a> --}}
+									</div>
 								</div>
                          
 							    @endforeach

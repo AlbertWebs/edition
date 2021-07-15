@@ -1,17 +1,15 @@
-@extends('admin.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div id="wrap" >
         
 
         <!-- HEADER SECTION -->
-        @include('admin.top')
+        <?php echo $__env->make('admin.top', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <!-- END HEADER SECTION -->
 
 
 
         <!-- MENU SECTION -->
-        @include('admin.left')
+        <?php echo $__env->make('admin.left', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
         <!--END MENU SECTION -->
 
 
@@ -31,7 +29,7 @@
                  <!--BLOCK SECTION -->
                  <div class="row">
                     <div class="col-lg-12">
-                        @include('admin.panel')
+                        <?php echo $__env->make('admin.panel', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
                     </div>
 
@@ -47,23 +45,23 @@
 
               <div class="row">
                <center>
-                 @if(Session::has('message'))
-							   <div class="alert alert-success">{{ Session::get('message') }}</div>
-				@endif
+                 <?php if(Session::has('message')): ?>
+							   <div class="alert alert-success"><?php echo e(Session::get('message')); ?></div>
+				<?php endif; ?>
 
-                @if(Session::has('messageError'))
-							   <div class="alert alert-danger">{{ Session::get('messageError') }}</div>
-				@endif
+                <?php if(Session::has('messageError')): ?>
+							   <div class="alert alert-danger"><?php echo e(Session::get('messageError')); ?></div>
+				<?php endif; ?>
                  </center>
                  
 
-                 <form class="form-horizontal" method="post"  action="{{url('/dashboard/edit_Portfolio')}}/{{$Portfolio->id}}" enctype="multipart/form-data">
+                 <form class="form-horizontal" method="post"  action="<?php echo e(url('/dashboard/edit_Portfolio')); ?>/<?php echo e($Portfolio->id); ?>" enctype="multipart/form-data">
                     
                  <div class="form-group">
                         <label for="text1" class="control-label col-lg-4">Portfolio Name</label>
 
                         <div class="col-lg-8">
-                            <input type="text" id="text1" name="name" value="{{$Portfolio->title}}" placeholder="e.g Travel Website " class="form-control" />
+                            <input type="text" id="text1" name="name" value="<?php echo e($Portfolio->title); ?>" placeholder="e.g Travel Website " class="form-control" />
                         </div>
                     </div>
 
@@ -71,7 +69,7 @@
                         <label for="text1" class="control-label col-lg-4">Client Name</label>
 
                         <div class="col-lg-8">
-                            <input type="text" id="text1" name="client" value="{{$Portfolio->client}}" placeholder="e.g Aol Outdoor Adventures " class="form-control" />
+                            <input type="text" id="text1" name="client" value="<?php echo e($Portfolio->client); ?>" placeholder="e.g Aol Outdoor Adventures " class="form-control" />
                         </div>
                     </div>
 
@@ -79,7 +77,7 @@
                         <label for="text1" class="control-label col-lg-4">Location</label>
 
                         <div class="col-lg-8">
-                            <input type="text" id="text1" name="location" value="{{$Portfolio->location}}" placeholder="e.g pgXPalanAMg" class="form-control" />
+                            <input type="text" id="text1" name="location" value="<?php echo e($Portfolio->location); ?>" placeholder="e.g pgXPalanAMg" class="form-control" />
                         </div>
                     </div>
 
@@ -89,11 +87,11 @@
                         <select name="service" data-placeholder="Choose a Service" class="form-control chzn-select" tabindex="2">
                         <?php $Servicee = DB::table('category')->where('id',$Portfolio->service)->get(); ?>
                         
-                          <option selected value="{{$Portfolio->id}}">@foreach($Servicee as $servicee){{$servicee->cat}} @endforeach</option>
+                          <option selected value="<?php echo e($Portfolio->id); ?>"><?php $__currentLoopData = $Servicee; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $servicee): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?><?php echo e($servicee->cat); ?> <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?></option>
                           <?php $Service = DB::table('category')->get(); ?>
-                          @foreach($Service as $value)
-                             <option value="{{$value->id}}">{{$value->cat}}</option>
-                          @endforeach
+                          <?php $__currentLoopData = $Service; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                             <option value="<?php echo e($value->id); ?>"><?php echo e($value->cat); ?></option>
+                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         </div>
                         </div>
@@ -102,7 +100,7 @@
                             <label for="limiter" class="control-label col-lg-4">Description</label>
 
                             <div class="col-lg-8">
-                                <textarea id="limiter" name="content" class="form-control">{{$Portfolio->content}}</textarea>
+                                <textarea id="limiter" name="content" class="form-control"><?php echo e($Portfolio->content); ?></textarea>
                                 <p class="help-block">Brief Description of the product for SEO</p>
                             </div>
                         </div>
@@ -112,7 +110,7 @@
                         <label class="control-label">Image One(Main)</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_one}}" alt="" /></div>
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($Portfolio->image_one); ?>" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image_one" type="file" /></span>
@@ -126,7 +124,7 @@
                         <label class="control-label">Image Two</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_two}}" alt="" /></div>
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($Portfolio->image_two); ?>" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image_two" type="file" /></span>
@@ -140,7 +138,7 @@
                         <label class="control-label">Image Three</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_three}}" alt="" /></div>
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($Portfolio->image_three); ?>" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image_three" type="file" /></span>
@@ -154,7 +152,7 @@
                         <label class="control-label">Image Four</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_four}}" alt="" /></div>
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($Portfolio->image_four); ?>" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image_four" type="file" /></span>
@@ -168,7 +166,7 @@
                         <label class="control-label">Image Five</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{url('/')}}/uploads/portfolio/{{$Portfolio->image_five}}" alt="" /></div>
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($Portfolio->image_five); ?>" alt="" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input name="image_five" type="file" /></span>
@@ -184,13 +182,13 @@
                       <button type="submit" class="btn btn-success"><i class="icon-check icon-white"></i> Save </button>
                     </div>
 
-                    <input type="hidden" name="image_one_cheat" value="{{$Portfolio->image_one}}">
-                    <input type="hidden" name="image_two_cheat" value="{{$Portfolio->image_two}}">
-                    <input type="hidden" name="image_three_cheat" value="{{$Portfolio->image_three}}">
-                    <input type="hidden" name="image_four_cheat" value="{{$Portfolio->image_four}}">
-                    <input type="hidden" name="image_five_cheat" value="{{$Portfolio->image_five}}">
+                    <input type="hidden" name="image_one_cheat" value="<?php echo e($Portfolio->image_one); ?>">
+                    <input type="hidden" name="image_two_cheat" value="<?php echo e($Portfolio->image_two); ?>">
+                    <input type="hidden" name="image_three_cheat" value="<?php echo e($Portfolio->image_three); ?>">
+                    <input type="hidden" name="image_four_cheat" value="<?php echo e($Portfolio->image_four); ?>">
+                    <input type="hidden" name="image_five_cheat" value="<?php echo e($Portfolio->image_five); ?>">
                     
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
                     
                 <form>
               </div>
@@ -207,8 +205,9 @@
         <!--END PAGE CONTENT -->
 
          <!-- RIGHT STRIP  SECTION -->
-        @include('admin.right')
+        <?php echo $__env->make('admin.right', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
          <!-- END RIGHT STRIP  SECTION -->
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

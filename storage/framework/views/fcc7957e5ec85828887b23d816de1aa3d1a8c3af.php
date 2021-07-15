@@ -186,8 +186,7 @@
 					
 					           <?php $Count = 1; ?>
 					           <?php $__currentLoopData = $Team; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $team): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                               <div class="element-item wow fadeInUp" data-wow-delay=".25s">
-	                                
+                               <div class="element-item wow fadeInUp team_images" data-wow-delay=".25s">
 	                               <img class="portfolio-img-demo" src="<?php echo e(url('/')); ?>/uploads/admins/<?php echo e($team->image); ?>" class="img-responsive" alt="Image">
 	                               <div class="project-info">
 	                                  	<h4 class="team-name"><?php echo e($team->name); ?></h4>

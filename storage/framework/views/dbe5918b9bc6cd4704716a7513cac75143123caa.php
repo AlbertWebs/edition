@@ -49,25 +49,25 @@
                             </div>
 
                             <div class="panel-body">
-                                <?php $Review = DB::table('reviews')->where('status',0)->get(); ?>
+                                <?php $Review = DB::table('comments')->where('status',0)->get(); ?>
                                 <ul class="chat">
-                                            <?php if($Message->isEmpty()): ?>
+                                            <?php if($Review->isEmpty()): ?>
                                                     <center><h2>You Have No New Message</h2></center>
                                                 <?php else: ?>
-                                            <?php $__currentLoopData = $Message; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <?php $__currentLoopData = $Review; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <li class="left clearfix">
                                                 <span class="chat-img pull-left">
                                                     <img src="<?php echo e(url('/')); ?>/admins_theme/assets/img/1.png" alt="User Avatar" class="img-circle" />
                                                 </span>
                                                 <div class="chat-body clearfix">
                                                     <div class="header">
-                                                        <strong class="primary-font "> <?php echo e($message->name); ?></strong>
+                                                        <strong class="primary-font "> <?php echo e($message->author); ?> | <small><?php $Blog = App\Blog::find($message->blog_id); echo $Blog->title ?></small></strong>
                                                         <small class="pull-right text-muted label label-success">
-                                                        <a style="color:#ffffff;" href="<?php echo e(url('/admin/read')); ?>/<?php echo e($message->id); ?>"> <i class="icon-check"></i> Read </a>
+                                                        <a style="color:#ffffff;"  onclick="return confirm('This comment will appear publicky in comment section! This process cannot be undone')" href="<?php echo e(url('/dashboard/approve')); ?>/<?php echo e($message->id); ?>"> <i class="icon-check"></i> Approved </a>
                                                         </small>
 
                                                         <small class="pull-right text-muted label label-danger">
-                                                        <a style="color:#ffffff;" onclick="return confirm('This Process Cannot Be Undone Please Confirm That You Want To Delete This Message')" href="<?php echo e(url('/admin/deleteMessage')); ?>/<?php echo e($message->id); ?>"> <i class="icon-trash"></i> Delete </a>
+                                                        <a style="color:#ffffff;" onclick="return confirm('This process cannot be undone')" href="<?php echo e(url('/dashboard/decline')); ?>/<?php echo e($message->id); ?>"> <i class="icon-trash"></i> Delete </a>
                                                         </small>
                                                     </div>
                                                     <br />

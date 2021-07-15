@@ -185,8 +185,7 @@
 					
 					           <?php $Count = 1; ?>
 					           @foreach($Team as $team)
-                               <div class="element-item wow fadeInUp" data-wow-delay=".25s">
-	                                
+                               <div class="element-item wow fadeInUp team_images" data-wow-delay=".25s">
 	                               <img class="portfolio-img-demo" src="{{url('/')}}/uploads/admins/{{$team->image}}" class="img-responsive" alt="Image">
 	                               <div class="project-info">
 	                                  	<h4 class="team-name">{{$team->name}}</h4>

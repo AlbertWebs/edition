@@ -51,25 +51,25 @@
                             </div>
 
                             <div class="panel-body">
-                                <?php $Review = DB::table('reviews')->where('status',0)->get(); ?>
+                                <?php $Review = DB::table('comments')->where('status',0)->get(); ?>
                                 <ul class="chat">
-                                            @if($Message->isEmpty())
+                                            @if($Review->isEmpty())
                                                     <center><h2>You Have No New Message</h2></center>
                                                 @else
-                                            @foreach($Message as $message)
+                                            @foreach($Review as $message)
                                             <li class="left clearfix">
                                                 <span class="chat-img pull-left">
                                                     <img src="{{url('/')}}/admins_theme/assets/img/1.png" alt="User Avatar" class="img-circle" />
                                                 </span>
                                                 <div class="chat-body clearfix">
                                                     <div class="header">
-                                                        <strong class="primary-font "> {{$message->name}}</strong>
+                                                        <strong class="primary-font "> {{$message->author}} | <small><?php $Blog = App\Blog::find($message->blog_id); echo $Blog->title ?></small></strong>
                                                         <small class="pull-right text-muted label label-success">
-                                                        <a style="color:#ffffff;" href="{{url('/admin/read')}}/{{$message->id}}"> <i class="icon-check"></i> Read </a>
+                                                        <a style="color:#ffffff;"  onclick="return confirm('This comment will appear publicky in comment section! This process cannot be undone')" href="{{url('/dashboard/approve')}}/{{$message->id}}"> <i class="icon-check"></i> Approved </a>
                                                         </small>
 
                                                         <small class="pull-right text-muted label label-danger">
-                                                        <a style="color:#ffffff;" onclick="return confirm('This Process Cannot Be Undone Please Confirm That You Want To Delete This Message')" href="{{url('/admin/deleteMessage')}}/{{$message->id}}"> <i class="icon-trash"></i> Delete </a>
+                                                        <a style="color:#ffffff;" onclick="return confirm('This process cannot be undone')" href="{{url('/dashboard/decline')}}/{{$message->id}}"> <i class="icon-trash"></i> Delete </a>
                                                         </small>
                                                     </div>
                                                     <br />

@@ -3307,13 +3307,13 @@ public function approve($id){
     $updateDetails = array(
         'status'=>1
     );
-    DB::table('reviews')->where('id',$id)->update($updateDetails);
+    DB::table('comments')->where('id',$id)->update($updateDetails);
     Session::flash('message-comment', "Review Has Been Approved");
     return Redirect::back();
 }
 
 public function decline($id){
-    DB::table('reviews')->where('id',$id)->delete();
+    DB::table('comments')->where('id',$id)->delete();
    
     Session::flash('message-comment', "Review Has Been Deleted");
     return Redirect::back();

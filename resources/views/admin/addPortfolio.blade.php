@@ -82,13 +82,13 @@
                     
 
                      <div class="form-group">
-                        <label for="text1" class="control-label col-lg-4">Service Rendered</label>
+                        <label for="text1" class="control-label col-lg-4">Category</label>
                     <div class="col-lg-8">
                         <select name="service" data-placeholder="Choose a Service" class="form-control chzn-select" tabindex="2">
                           
-                           <?php $Service = DB::table('services')->get(); ?>
+                           <?php $Service = DB::table('category')->get(); ?>
                            @foreach($Service as $value)
-                              <option value="{{$value->title}}">{{$value->title}}</option>
+                              <option value="{{$value->id}}">{{$value->cat}}</option>
                            @endforeach
 
                         </select>

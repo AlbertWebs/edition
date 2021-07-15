@@ -11327,9 +11327,14 @@ color: #f26a3f;
 @media (max-width: 540px) {
 
   .theServiceImage{
-    width: 100%;
+    width: 100% !important;
     margin-top: 50px;
     float: none;
+  }
+
+  .theServiceImage img{
+    width: 100% !important;
+    height:100% !important;
   }
 
 }
@@ -12167,3 +12172,41 @@ ul.social-fix  li a{
   width:25%;
   border:1px solid;
 } */
+
+.port-image{
+  width:490px !important;
+  height:330px !important;
+}
+
+.port-image img{
+  width:100% !important;
+  height:100% !important;
+}
+
+.team_images img{
+  max-height:400px;
+}
+
+.team_image img{
+  height:325px;
+}
+
+@media (max-width: 940px) {
+  .port-image{
+    width:auto;
+    height:auto;
+  }
+  
+  .port-image img{
+    width:auto;
+    height:auto;
+  }
+
+  .team_images img{
+    max-height:100%;
+  }
+  
+  .team_image img{
+    height:100%;
+  }
+}

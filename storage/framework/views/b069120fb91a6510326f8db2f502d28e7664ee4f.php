@@ -231,7 +231,7 @@
                         <?php $Count = 2; ?>
                         <?php $__currentLoopData = $Services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $services): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 						<!-- Page Content -->
-						<div class="col-md-4 col-sm-6 col-lg-2 theServiceImage wow fadeInRight" data-wow-delay=".<?php echo e($Count); ?>5s" >
+						<div class="col-xm-6 col-md-4 col-sm-6 col-lg-2 theServiceImage wow fadeInRight" data-wow-delay=".<?php echo e($Count); ?>5s" >
 							<div class="icon-holder">
 								<img class="icon-img" src="<?php echo e(url('/uploads/')); ?>/services/<?php echo e($services->image_two); ?>" alt="#"> 
 							</div>
@@ -279,11 +279,11 @@
 				<!--  -->
 				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
-                                    <?php $ServicesList = DB::table('services')->get(); ?>
+                                    <?php $ServicesList = DB::table('category')->get(); ?>
                                     
 									<a href="#" data-filter="*" class="current text-cap"><h4>All Projects</h4></a>
                                     <?php $__currentLoopData = $ServicesList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $serlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-									<a href="#" data-filter=".<?php echo e($serlist->title); ?>" class="text-cap"><h4><?php echo e($serlist->title); ?></h4></a>
+									<a href="#" data-filter=".cat_<?php echo e($serlist->id); ?>" class="text-cap"><h4><?php echo e($serlist->cat); ?></h4></a>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 									
 						</div> <!-- End Project Fillter -->
@@ -293,14 +293,15 @@
 				                <?php $Portfolio = DB::table('portfolio')->limit('6')->get(); ?>
                        
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<div class="element-item  <?php echo e($port->service); ?>">
-										
-										<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive" alt="<?php echo e($port->title); ?>"></a>
+								<div class="element-item cat_<?php echo e($port->service); ?>">
+									<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>">
+										<img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive port-image" alt="<?php echo e($port->title); ?>">
+									</a>
 									<div class="project-info">
-											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
-											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>" class="cateProject"><?php echo e($port->location); ?></a>
-											<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h5 class="title-project text-cap text-cap"><?php echo e($port->service); ?></h5></a>
-										</div>
+										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
+										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>" class="cateProject"><?php echo e($port->location); ?></a>
+										
+									</div>
 								</div>
                          
 							    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
