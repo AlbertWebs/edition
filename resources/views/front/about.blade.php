@@ -7,7 +7,7 @@
 <div class="clear"></div>
 <!--  -->
             <section>
-               <div class="rev_slider_wrapper" style=" background:linear-gradient(rgba(6, 43, 49, 0.45),rgba(6, 43, 49, 0.45)),url('{{url('/')}}/uploads/pages/{{$page->page_featured_image_four}}');background-position: center center; background-size: cover; background-repeat: no-repeat;">
+               <div class="rev_slider_wrapper" style=" background:linear-gradient(rgba(6, 43, 49, 0.45),rgba(6, 43, 49, 0.65)),url('{{url('/')}}/uploads/pages/{{$page->page_featured_image_four}}');background-position: center top; background-size: cover; background-repeat: no-repeat;">
                   <!-- START REVOLUTION SLIDER 5.0 auto mode -->
                   <div id="slider-h3" class="rev_slider slider-home-3" data-version="5.0">
                      <ul>
