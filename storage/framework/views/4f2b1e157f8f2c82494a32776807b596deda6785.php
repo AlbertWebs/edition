@@ -58,17 +58,12 @@
 		<!-- breadcrumbs -->
        
 			<!-- Map -->
-			<section class="no-padding-bot" style="line-height: 0;">
-	
-					
-
+			<section id="map" class="no-padding-bot" style="line-height: 0;">
 					<div class="row">
-						
-					<div class="col-md-12">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.16735573576!2d36.8422951!3d-1.2997084!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabd97dc83bb23b31!2sThe%20Edition%20Investments%20Limited!5e0!3m2!1sen!2ske!4v1591361775583!5m2!1sen!2ske" width="100%" height="255" frameborder="0" style="border:0;" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+						<div class="col-md-12">
+							<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.16735573576!2d36.8422951!3d-1.2997084!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xabd97dc83bb23b31!2sThe%20Edition%20Investments%20Limited!5e0!3m2!1sen!2ske!4v1591361775583!5m2!1sen!2ske" width="100%" height="555" frameborder="0" style="border:0;" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+						</div>
 					</div>
-					</div>
-
 			</section>
 			<!-- End Section -->
 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

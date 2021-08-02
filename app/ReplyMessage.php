@@ -161,7 +161,7 @@ class ReplyMessage extends Model
 
         Mail::send('mailcontact', $data, function($message) use ($subject,$FromVariable,$FromVariableName,$toVariable,$toVariableName,$email,$name){
             $message->from($FromVariable , $FromVariableName);
-            $message->to($toVariable, $toVariableName)->cc('joshua@editioninvestments.com')->replyTo($email , $name)->subject($subject);
+            $message->to($toVariable, $toVariableName)->cc('info@editioninvestments.com')->replyTo($email , $name)->subject($subject);
         });
     }
     
@@ -190,7 +190,7 @@ class ReplyMessage extends Model
 
         Mail::send('mailcontact', $data, function($message) use ($subject,$FromVariable,$FromVariableName,$toVariable,$toVariableName,$email,$name){
             $message->from($FromVariable , $FromVariableName);
-            $message->to($toVariable, $toVariableName)->cc('joshua@editioninvestments.com')->replyTo($email , $name)->subject($subject);
+            $message->to($toVariable, $toVariableName)->cc('info@editioninvestments.com')->replyTo($email , $name)->subject($subject);
         });
     }
    

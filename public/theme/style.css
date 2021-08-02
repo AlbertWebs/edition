@@ -5435,7 +5435,7 @@ figure .ot-btn {
   padding: 0 20px;
 }
 .portfolio-grid-3-warp .portfolio-grid-3-container .element-item {
-  width: 25%;
+  width: 100%;
   padding: 0 20px;
 }
 .portfolio-grid-3-warp .portfolio-grid-3-container .element-item .portfolio-img-demo {
@@ -10819,7 +10819,7 @@ ul.list-link-footer li:hover:before {
   color: #ffffff;
   margin-top: 18px;
   /* margin-bottom: 38px; */
-  font-size:10px;
+  font-size:12px;
   line-height: 15px;
 }
 
@@ -11929,6 +11929,7 @@ ul.social-fix  li a{
   max-width:300px;
   text-align:center;
   color:#062b31;
+  font-weight: 600;
   font-size: 11px;
   margin:0px auto;
 }
@@ -12184,7 +12185,9 @@ ul.social-fix  li a{
 }
 
 .team_images img{
-  max-height:400px;
+  max-height:487px;
+  min-height:487px;
+  height: 100%;
 }
 
 .team_image img{
@@ -12208,5 +12211,11 @@ ul.social-fix  li a{
   
   .team_image img{
     height:100%;
+  }
+
+  .team_images img{
+    max-height:auto;
+    min-height:auto;
+    height: 100%;
   }
 }

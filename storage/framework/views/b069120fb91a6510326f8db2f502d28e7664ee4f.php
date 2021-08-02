@@ -323,7 +323,7 @@
 					<div class="row" style="border-bottom:1px dotted #ffffff">
 						<div class="col-lg-6 col-md-12 col-sm-12">
 							<div class="news-letter-title wow fadeInLeft" data-wow-delay=".25s">
-								<h2 class="text-cap">Dare To Choose Us Today!</h2>
+								<h2 class="text-cap">Work with Us Today!</h2>
 								<p>Get latest news on our products and Services Delivered to you daily</p>
 							</div>
 						</div>
