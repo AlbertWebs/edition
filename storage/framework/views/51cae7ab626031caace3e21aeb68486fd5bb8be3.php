@@ -181,20 +181,7 @@
  	<script src="<?php echo e(asset('theme/js/plugins/jquery.counterup.min.js')); ?>"></script>
     <!-- PreLoad
     ================================================== --> 
-    <script type="text/javascript" src="<?php echo e(asset('theme/js/plugins/royal_preloader.min.js')); ?>"></script>
-	<script type="text/javascript">
-		(function($) { "use strict";
-					Royal_Preloader.config({
-						mode:           'text', // 'number', "text" or "logo"
-						text: 'The Edition Investments Limited',
-						timeout:       1,
-						showInfo:       false,
-						opacity:        1,
-						background:     ['#FFFFFF']
-					});
-		})(jQuery);
-
-	</script>
+    
 
 	<script>
 		$(window).load(function(){

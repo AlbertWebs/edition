@@ -180,7 +180,7 @@
  	<script src="{{asset('theme/js/plugins/jquery.counterup.min.js')}}"></script>
     <!-- PreLoad
     ================================================== --> 
-    <script type="text/javascript" src="{{asset('theme/js/plugins/royal_preloader.min.js')}}"></script>
+    {{-- <script type="text/javascript" src="{{asset('theme/js/plugins/royal_preloader.min.js')}}"></script>
 	<script type="text/javascript">
 		(function($) { "use strict";
 					Royal_Preloader.config({
@@ -193,7 +193,7 @@
 					});
 		})(jQuery);
 
-	</script>
+	</script> --}}
 
 	<script>
 		$(window).load(function(){
