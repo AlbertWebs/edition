@@ -290,7 +290,7 @@
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
-				                <?php $Portfolio = DB::table('portfolio')->limit('30')->get(); ?>
+				                <?php $Portfolio = DB::table('portfolio')->limit('12')->get(); ?>
                        
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<div class="element-item cat_<?php echo e($port->service); ?>">
