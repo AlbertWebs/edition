@@ -56,6 +56,26 @@
                                                    {!!html_entity_decode($blog->content)!!}<br>
 						                       
 						                        <br>
+												<div class="row">
+													<div class="col-md-6">
+														@if($blog->image_three == null)
+
+														@else
+														<img src="{{url('/')}}/uploads/blog/{{$blog->image_three}}" class="img-responsive" alt="Image">
+														@endif
+													</div>
+												
+
+											
+													<div class="col-md-6">
+														@if($blog->image_four == null)
+
+														@else
+														<img src="{{url('/')}}/uploads/blog/{{$blog->image_four}}" class="img-responsive" alt="Image">
+														@endif
+													</div>
+												</div>
+												
 						                        
 						                    </div>
 						                    <div class="footer-data text-cap">

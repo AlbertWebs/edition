@@ -300,7 +300,7 @@
 									<div class="project-info">
 										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
 										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>" class="cateProject"><?php echo e($port->location); ?></a>
-										
+										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h5 class="title-project text-cap text-cap"><?php $Category = App\Category::find($port->service) ?> <?php echo e($Category->cat); ?> </h5></a>
 									</div>
 								</div>
                          

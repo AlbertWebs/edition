@@ -300,7 +300,7 @@
 									<div class="project-info">
 										<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
 										<a href="{{url('/')}}/portfolio/{{$port->slug}}" class="cateProject">{{$port->location}}</a>
-										{{-- <a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap">{{$port->service}}</h5></a> --}}
+										<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> {{$Category->cat}} </h5></a>
 									</div>
 								</div>
                          

@@ -56,6 +56,26 @@
                                                    <?php echo html_entity_decode($blog->content); ?><br>
 						                       
 						                        <br>
+												<div class="row">
+													<div class="col-md-6">
+														<?php if($blog->image_three == null): ?>
+
+														<?php else: ?>
+														<img src="<?php echo e(url('/')); ?>/uploads/blog/<?php echo e($blog->image_three); ?>" class="img-responsive" alt="Image">
+														<?php endif; ?>
+													</div>
+												
+
+											
+													<div class="col-md-6">
+														<?php if($blog->image_four == null): ?>
+
+														<?php else: ?>
+														<img src="<?php echo e(url('/')); ?>/uploads/blog/<?php echo e($blog->image_four); ?>" class="img-responsive" alt="Image">
+														<?php endif; ?>
+													</div>
+												</div>
+												
 						                        
 						                    </div>
 						                    <div class="footer-data text-cap">
