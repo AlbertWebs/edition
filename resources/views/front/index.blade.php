@@ -290,7 +290,7 @@
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
-				                <?php $Portfolio = DB::table('portfolio')->limit('6')->get(); ?>
+				                <?php $Portfolio = DB::table('portfolio')->limit('30')->get(); ?>
                        
                                 @foreach($Portfolio as $port)
 								<div class="element-item cat_{{$port->service}}">

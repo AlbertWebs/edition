@@ -4,7 +4,7 @@
 <?php $__currentLoopData = $Page; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $page): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <!-- Section form contact -->
-            <section style="min-height:850px; background:linear-gradient(rgba(6, 43, 49, 0.75),rgba(6, 43, 49, 0.75)),url('<?php echo e(url('/')); ?>/uploads/pages/<?php echo e($page->page_featured_image_two); ?>');background-position: center center; background-size: contain, cover; ;background-repeat: no-repeat;">
+            <section style="min-height:850px; background:linear-gradient(rgba(6, 43, 49, 0.75),rgba(6, 43, 49, 0.75)),url('<?php echo e(url('/')); ?>/uploads/banner/20210715164329_IMG_3200-min.jpg');background-position: center bottom; background-size: contain, cover; ;background-repeat: no-repeat;">
                 <div class="container">
                     <div class="row" style="padding-top:110px;">
                         <!--  -->

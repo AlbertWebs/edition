@@ -184,8 +184,8 @@
 	<script type="text/javascript">
 		(function($) { "use strict";
 					Royal_Preloader.config({
-						mode:           'logo', // 'number', "text" or "logo"
-						logo:           '{{asset('theme/images/Header/logo.png')}}',
+						mode:           'text', // 'number', "text" or "logo"
+						text: 'The Edition Investments Limited',
 						timeout:       1,
 						showInfo:       false,
 						opacity:        1,
