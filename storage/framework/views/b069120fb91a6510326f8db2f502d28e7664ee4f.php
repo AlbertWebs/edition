@@ -390,9 +390,7 @@
                         <div class="item">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="<?php echo e(url('/')); ?>/uploads/testimonials/<?php echo e($test->image); ?>" alt="">
-                                    </a>
+                                    
                                 </div>
                             
                             </div>

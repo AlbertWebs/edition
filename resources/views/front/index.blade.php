@@ -389,9 +389,9 @@
                         <div class="item">
                             <div class="media">
                                 <div class="media-left">
-                                    <a href="#">
-                                        <img class="media-object" src="{{url('/')}}/uploads/testimonials/{{$test->image}}" alt="">
-                                    </a>
+                                    {{-- <a href="#">
+                                        <img class="media-object" src="{{url('/')}}/uploads/testimonials/avatar.png" alt="">
+                                    </a> --}}
                                 </div>
                             
                             </div>
