@@ -43,9 +43,9 @@
       sliderType:"standar",
       sliderLayout:"fullscreen",
       delay:6000,
-      spinner:"off",
+      spinner:"on",
       navigation: {
-        arrows:{enable:false},
+        arrows:{enable:true},
         onHoverStop:"off"       
       },      
       responsiveLevels:[1920,1024,778,480],
