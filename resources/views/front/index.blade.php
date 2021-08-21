@@ -68,7 +68,7 @@
 							</li>
 
 								<!-- SLIDE  -->
-								<li data-transition="fade" data-masterspeed="1000"  >
+								<li data-transition="fade" data-masterspeed="1000">
 								
 									<!-- MAIN IMAGE -->
 									<img src="{{asset('theme/images/Slider/h4-2.jpg')}}"  alt="" 
@@ -206,7 +206,7 @@
 								</div>
 								<div class="content-container">
 									<div class="room-checks-1">
-									<h4 class="">Our Mision</h4>
+									<h4 class="">Our Mission</h4>
 									</div>
 									<p>To achieve sustainable growth through customer
 										satisfaction. We aim to set the standards of
