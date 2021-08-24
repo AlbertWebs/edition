@@ -23,6 +23,7 @@ Route::get('/about-us','HomeController@about');
 Route::get('/products-and-services','HomeController@services');
 Route::get('/portfolio','HomeController@portfolio');
 Route::get('/contact-us','HomeController@contact');
+Route::get('/get-quote','HomeController@contact');
 
 Route::get('/news-and-blog','HomeController@news');
 Route::get('/news/{slug}','BlogController@blog');

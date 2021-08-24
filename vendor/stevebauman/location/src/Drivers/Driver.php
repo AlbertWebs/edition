@@ -7,6 +7,9 @@ use Stevebauman\Location\Position;
 
 abstract class Driver
 {
+    const CURL_MAX_TIME = 2;
+    const CURL_CONNECT_TIMEOUT = 2;
+
     /**
      * The fallback driver.
      *
@@ -39,7 +42,7 @@ abstract class Driver
     {
         $data = $this->process($ip);
 
-        $position = new Position();
+        $position = $this->getNewPosition();
 
         // Here we will ensure the locations data we received isn't empty.
         // Some IP location providers will return empty JSON. We want
@@ -59,6 +62,18 @@ abstract class Driver
     }
 
     /**
+     * Create a new position instance.
+     *
+     * @return Position
+     */
+    protected function getNewPosition()
+    {
+        $position = config('location.position', Position::class);
+
+        return new $position;
+    }
+
+    /**
      * Determine if the given fluent data is not empty.
      *
      * @param Fluent $data
@@ -67,7 +82,7 @@ abstract class Driver
      */
     protected function fluentDataIsNotEmpty(Fluent $data)
     {
-        return count(array_filter($data->getAttributes())) > 0;
+        return ! empty(array_filter($data->getAttributes()));
     }
 
     /**
@@ -83,7 +98,8 @@ abstract class Driver
 
         curl_setopt($session, CURLOPT_URL, $url);
         curl_setopt($session, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($session, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($session, CURLOPT_TIMEOUT, static::CURL_MAX_TIME);
+        curl_setopt($session, CURLOPT_CONNECTTIMEOUT, static::CURL_CONNECT_TIMEOUT);
 
         $content = curl_exec($session);
 

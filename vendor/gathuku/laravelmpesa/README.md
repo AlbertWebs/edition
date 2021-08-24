@@ -1,53 +1,61 @@
 # Laravel Mpesa Package
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/414b845bd4ec44a1894d4f7a7499c227)](https://app.codacy.com/app/gathuku/laravel_mpesa?utm_source=github.com&utm_medium=referral&utm_content=gathuku/laravel_mpesa&utm_campaign=Badge_Grade_Dashboard)
 [![Latest Version](https://img.shields.io/github/release/gathuku/laravel_mpesa.svg?style=flat-square)](https://github.com/gathuku/laravel_mpesa/releases)
-
 [![Issues](https://img.shields.io/github/issues/gathuku/laravel_mpesa.svg?style=flat-square)](https://github.com/gathuku/laravel_mpesa/issues)
-
 [![Total Downloads](https://img.shields.io/packagist/dt/gathuku/laravelmpesa.svg?style=flat-square)](https://packagist.org/packages/gathuku/laravelmpesa)
-
 [![Twiter](https://img.shields.io/twitter/url/https/github.com/gathuku/laravel_mpesa.svg?style=social?style=social)](https://twitter.com/Gathukumose)
 
 
-This package help you in integrating your laravel application with Mpesa daraja APIS. The package eliminate all the hastles and let you concetrate with what is important.
+This package helps you integrate your laravel application with Mpesa daraja APIs. The package eliminates (almost)all the hassles and lets you concentrate on what is important.
 
-The package will help you integrating the following APIs, available in mpesa daraja
+The package will help you integrate with the following APIs, available on mpesa daraja;
 
 - C2B (consumer to business)
-- B2C (business to cunsumers)
+- B2C (business to cunsumer)
 - Lipa na mpesa online(Mpesa Express)
 - Reversal
 - Transaction status
 - Account balance
 
+## Documentation
+You are looking at it. But we've also got [beautiful, fully navigable docs](https://beyode.co.ke/mpesa/).
 
 ## Installation
 You can install this awesome package via composer
 
-```
+```sh
 composer require gathuku/laravelmpesa
-
 ```
-If you're using Laravel 5.5, this is all you have to do.
+If you're using Laravel >=5.5, this is all you have to do.
 
 Should you still be on version 5.4 of Laravel, the final steps for you are to add the service provider of the package and alias the package. To do this open your `config/app.php` file.
 
 Add a new line to the `providers` array:
-```
+```php
  Gathuku\Mpesa\MpesaServiceProvider::class,
 ```
 And optionally add a new line to the `aliases` array:
-```
+```php
 'Mpesa' => Gathuku\Mpesa\Facades\Mpesa::class,
 ```
 
-Next, After the package have been installed run
+### Happy Coding :tada: :100:
+
+## Configuration
+Next, after the package has been installed run;
 ```
+php artisan mpesa:install
+```
+or 
+
+```sh
 php artisan vendor:publish
 ```
-This will help in publishing `config/mpesa.php` file. . From the mpesa config file this where you will define if your application is running in sandbox or production. If your application is running on sandbox you  will define `'mpesa_status' => 'sandbox',`
-You will continue filling your test credentials from your application in [developers portal ](developers.safaricom.co.ke)
-
+This will help in publishing `config/mpesa.php` file.
+This *mpesa config* file is where you will add all configurations for Mpesa APIs.
+This includes the environment your application is running in(sandbox or production), callback URLs and  required credentials.
+You will obtain credentials from your `app` on Safaricom's [developer portal](https://developer.safaricom.co.ke).
 
 ```php
 <?php
@@ -83,248 +91,21 @@ return [
 
 For production you need to replace with production credentials.
 
-For security reason you may need to define your API in `env` file. For example
+For security reasons you may want to define your API credentials in `env` file. For example;
 ```php
   'consumer_key'   => env('CONSUMER_KEY'),
 ```
 
+### Usage
+Full usage and examples in [USAGE.md](./USAGE.md)
 
-## Usage
+### Contributing
+Thank you for considering contributing to `laravelmpesa`. Pull requests and issues welcome.
 
-### Register C2B Urls
-This API enables you to register the callback URLs via which you shall receive payment notifications for payments to your paybill/till number. Read more on [official safaricom documentation](https://developer.safaricom.co.ke/docs) or on [ a simplified documentation by Peter Njeru](https://peternjeru.co.ke/safdaraja/ui/)
-
-To register Urls ensure `c2b_validate_callback` and `c2b_confirm_callback` are filled in `config/mpesa.php`. When Testing on sandbox you can use [ngrok](https://ngrok.com/) to expose your callbacks to the internet.Then you call call `c2bRegisterUrls()` on `Mpesa` facade.
-
-```php
-$registerUrlsResponse=Mpesa::c2bRegisterUrls()
-```
-
-Upon successful registering of urls you should get the following response
-```json
-{
-	"ConversationID": "",
-	"OriginatorCoversationID": "",
-	"ResponseDescription": "success"
-}
-```
-
-
-### C2B API
-You can use C2B API to simulate payment from clients and safaricom API. Before simulating you need to have registere your urls using `Register C2B Urls API`.
-
-To use C2B ensure `consumer_key`,`consumer_secret`,`paybill` are set in `config/mpesa.php`. To simulate you need to pass three parameters to `simulateC2B` function.
-
-1. The `amount` being simulated
-2. Test `MSISDN`- form API test credentials
-3. Bill `reference`
-
-```php
-$simulateResponse=Mpesa::simulateC2B(100, "254708374149", "Testing");
-
-```
-Upon successful simulation you will receive this responce
-
-```json
-       {
-            "ConversationID": "AG_20190115_00007fc37fc3db6e9562",
-            "OriginatorCoversationID": "10028-4198443-1",
-            "ResponseDescription": "Accept the service request successfully."
-        }
-
-```
-For you to receive payment confirmation you need to register a route in `routes/api.php` according to the confirmation and validation callbacks you registered.Then you can use laravel log facade to log the request content in `storage/logs/laravel.log` file.
-For example the following urls callbacks you can get validation and confirmation requests using the code below
-```
-//Validation callback
-https://b2d7e6a4.ngrok.io/api/validate?key=ertyuiowwws
-
-//Confirmation callback
-https://b2d7e6a4.ngrok.io/api/confirm?key=ertyuiowwws
-```
-For validation callback
-```php
-Route::post('validate', function(Request $request){
-    Log::info($request->getContent());
-});
-```
-
-For confirmation callback
-```php
-Route::post('confirm', function(Request $request){
-    Log::info($request->getContent());
-});
-```
-
-You will also receive a  confirmation from your the confirmation you registered
-```json
-       {
-            "TransactionType": "Pay Bill",
-            "TransID": "NAF81H7Y72",
-            "TransTime": "20190115234802",
-            "TransAmount": "100.00",
-            "BusinessShortCode": "601380",
-            "BillRefNumber": "Testing",
-            "InvoiceNumber": "",
-            "OrgAccountBalance": "900.00",
-            "ThirdPartyTransID": "",
-            "MSISDN": "254708374149",
-            "FirstName": "John",
-            "MiddleName": "J.",
-            "LastName": "Doe"
-        }
-```
-
-
-### B2C API
-To use this API you need to call `b2c()` on `Mpesa` facade. This function accept the following parameters
-1. `Amount` - Amount of money sent to a consumer
-2. `MSISDN` - Phone number of consumer
-3. `command_id` -This specifies the type of transaction.There are three allowed values on the API:      `SalaryPayment`, `BusinessPayment` or `PromotionPayment`
-4. `Remarks` - small decription on the payment being made.
-
-```php
-$b2cResponse=Mpesa::b2c(100,'254708374149','PromotionPayment','testing');
-```
-Upon success you should receive below response
-```json
-
-       {
-            "ConversationID": "AG_20190117_00004636fb3ac56655df",
-            "OriginatorConversationID": "17503-13504109-1",
-            "ResponseCode":"0",
-            "ResponseDescription": "Accept the service request successfully."
-        }
-```
-After a successdull transaction you will get get a callback via `b2c_result` you specifies in `mpesa  config`, A sample success callback is below.
-```json
- {
-    "Result": {
-        "ResultType": 0,
-        "ResultCode": 0,
-        "ResultDesc": "The service request is processed successfully.",
-        "OriginatorConversationID": "10030-6237802-1",
-        "ConversationID": "AG_20190119_000053c075d4e13cbeae",
-        "TransactionID": "NAJ41H7YJQ",
-        "ResultParameters": {
-            "ResultParameter": [
-                {
-                    "Key": "TransactionReceipt",
-                    "Value": "NAJ41H7YJQ"
-                },
-                {
-                    "Key": "TransactionAmount",
-                    "Value": 100
-                },
-                {
-                    "Key": "B2CChargesPaidAccountAvailableFunds",
-                    "Value": -495
-                },
-                {
-                    "Key": "B2CRecipientIsRegisteredCustomer",
-                    "Value": "Y"
-                },
-                {
-                    "Key": "TransactionCompletedDateTime",
-                    "Value": "19.01.2019 17:01:27"
-                },
-                {
-                    "Key": "ReceiverPartyPublicName",
-                    "Value": "254708374149 - John Doe"
-                },
-                {
-                    "Key": "B2CWorkingAccountAvailableFunds",
-                    "Value": 600000
-                },
-                {
-                    "Key": "B2CUtilityAccountAvailableFunds",
-                    "Value": 235
-                }
-            ]
-        },
-        "ReferenceData": {
-            "ReferenceItem": {
-                "Key": "QueueTimeoutURL",
-                "Value": "https://internalsandbox.safaricom.co.ke/mpesa/b2cresults/v1/submit"
-            }
-        }
-    }
-}
-```
-
-### Lipa na Mpesa Online
-The following must be filled in `config/mpesa.php`
-- 'consumer_key' => ''
-- 'consumer_secret' => ''
-- 'lipa_na_mpesa' => ''
-- 'lipa_na_mpesa_passkey' => ''
-- 'lnmocallback' => '',
-
-To run this api call `express` function on `Mpesa` Facade. The function requires the following parameters
-1. `amount` - Amount of money in the transaction
-2. `msisdn` - Phone Number of debit party
-3. `AccountReference` - Payment reference
-4. `TransactionDesc`  - a small description on the payment
-
-
-
-```php
-$expressResponse=Mpesa::express(100,'2547112855','24242524','Testing Payment');
-```
-
-
-Upon success `$expressREsponse` will return below response
-```json
-{
-  "MerchantRequestID": "10029-6178310-1",
-  "CheckoutRequestID": "ws_CO_DMZ_291417540_19012019145720246",
-  "ResponseCode": "0",
-  "ResponseDescription": "Success. Request accepted for processing",
-  "CustomerMessage": "Success. Request accepted for processing"
-}
-```
-After success you will get a callback via `lnmocallback` you specified in config `mpesa` file.
-```json
-{
-    "Body": {
-        "stkCallback": {
-            "MerchantRequestID": "5913-662870-1",
-            "CheckoutRequestID": "ws_CO_DMZ_224117480_19012019164445976",
-            "ResultCode": 0,
-            "ResultDesc": "The service request is processed successfully.",
-            "CallbackMetadata": {
-                "Item": [
-                    {
-                        "Name": "Amount",
-                        "Value": 1
-                    },
-                    {
-                        "Name": "MpesaReceiptNumber",
-                        "Value": "NAJ3ABAMIR"
-                    },
-                    {
-                        "Name": "Balance"
-                    },
-                    {
-                        "Name": "TransactionDate",
-                        "Value": 20190119164514
-                    },
-                    {
-                        "Name": "PhoneNumber",
-                        "Value": 254705112855
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
-### Contribution
-Thankyou for considering to contribute on `laravelmpesa`. Make a pull request to contribute.
+Be sure to read through [CONTRIBUTING.md](./CONTRIBUTING.md) and check open issues and PRs before continuing.
 
 ### Security Vulnerabilities
 If you discover a security vulnerability within `laravelmpesa`, please send an e-mail to Moses Gathuku via gathukumoses12@gmail.com. All security vulnerabilities will be promptly addressed.
 
 ### License
-The `laravelmpesa` package is open-sourced software licensed under the MIT [MIT license](https://opensource.org/licenses/MIT)
+The `laravelmpesa` package is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT)
