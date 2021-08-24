@@ -361,7 +361,10 @@ class HomeController extends Controller
     public function submitMessage(Request $request)  
     {
      
-      
+        if ($request->faxonly) {
+            Session::flash('message', "Your Message Has Been Sent");
+            return Redirect::back();
+        }else{
             $email = $request->email;
             $name = $request->name;
             $phone = $request->phone;
@@ -389,6 +392,8 @@ class HomeController extends Controller
             
             Session::flash('message', "Your Message Has Been Sent");
             return Redirect::back();
+        }
+           
         
         
         

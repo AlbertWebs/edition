@@ -40,6 +40,11 @@
 											<div class="form-group col-sm-12" style="padding:15px">
 											<input type="text" class="dotted-input" name="subject" id="yourEmail" placeholder="Subject" >
 											</div>
+											<div class="form-group" style="display: none;">
+												<label for="faxonly">Fax Only
+												 <input type="checkbox" name="faxonly" id="faxonly" />
+												</label>
+											   </div>
 										</div>
 										<div class="input-content" style="padding:15px">
 											<div class="form-group form-textarea">
