@@ -59,7 +59,7 @@
                 <li data-transition="parallaxtoright" data-masterspeed="1000" >
 								
                     <!-- MAIN IMAGE -->
-                    <img src="{{url('/')}}/uploads/sliders/slider-3.webp"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
+                    <img src="{{url('/')}}/uploads/sliders/slider33.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption heading-2 white-text" 							
@@ -162,60 +162,7 @@
                     
                 </li>
                
-                <!-- SLIDE  -->
-                <li data-transition="parallaxtoright" data-masterspeed="1000" >
-                                                
-                    <!-- MAIN IMAGE -->
-                    <img src="{{url('/')}}/uploads/sliders/slider-5.webp"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
-
-                    <!-- LAYER NR. 1 -->
-                    <div class="tp-caption heading-2 white-text" 							
-                        data-x="center" 
-                        data-y="center"  data-voffset="-80" 									 
-                        data-transform_in="y:-80px;opacity:0;s:800;e:easeInOutCubic;" 
-                        data-transform_out="y:-80px;opacity:0;s:300;" 
-                    
-                        data-start="1000" 				 							
-                        >Inspiring
-                        and
-                        Warm Interiors
-                    </div>
-                    <!-- LAYER NR. 2 -->
-                    <div class="tp-caption heading-1 white-text text-cap " 						
-                        data-x="center" 
-                        data-y="center" 					
-                        data-transform_in="y:80px;opacity:0;s:800;e:easeInOutCubic;" 
-                        data-transform_out="y:80px;opacity:0;s:300;" 
-                        data-start="1400" 
-                        >Joinery
-                    </div>
-                    
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption btn-1" 							
-                        data-x="center"  data-hoffset="-85"
-                        data-y="center"  data-voffset="100" 
-                        data-transform_in="y:100px;opacity:0;s:800;e:easeInOutCubic;" 
-                        data-transform_out="y:200px;opacity:0;s:300;" 
-                        data-start="1600" 
-                        >	
-                        <a href="{{url('/')}}/portfolio" class="ot-btn btn-main-color text-cap ">Our Projects</a>  
-                        
-                    </div>
-                    <!-- LAYER NR. 4 -->
-                    <div class="tp-caption btn-2" 							
-                        data-x="center"  data-hoffset="85"
-                        data-y="center"  data-voffset="100" 
-                        data-transform_in="y:100px;opacity:0;s:800;e:easeInOutCubic;" 
-                        data-transform_out="y:200px;opacity:0;s:300;" 
-
-                        data-start="1600" 
-                        >	
-                        <a href="{{url('/')}}/get-quote" class="ot-btn btn-sub-color text-cap  ">Get a Quote</a> 
-                    </div>
-                    
-                </li>
-
-                 <!-- SLIDE  -->
+                            <!-- SLIDE  -->
                  <li data-transition="parallaxtoright" data-masterspeed="1000" >
                                                 
                     <!-- MAIN IMAGE -->
