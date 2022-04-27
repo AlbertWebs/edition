@@ -37,7 +37,7 @@
                         <div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $portfolio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="element-item  cat_<?php echo e($portfolio->service); ?>">
-                                    <a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>" class="img-responsive" alt="Edition Office Fitouts"></a>
+                                    <a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>" class="img-responsive" alt="<?php $Category = App\Category::find($portfolio->service) ?> <?php echo e($Category->cat); ?>"></a>
                                     <div class="project-info">
                                         <a href="#"><h4 class="title-project text-cap text-cap"><?php echo e($portfolio->title); ?></h4></a>
                                         <a href="#" class="cateProject"><?php echo e($portfolio->location); ?></a>

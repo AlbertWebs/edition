@@ -38,7 +38,7 @@
                         <div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
                                 @foreach($Portfolio as $portfolio)
                                 <div class="element-item  cat_{{$portfolio->service}}">
-                                    <a class="portfolio-img-demo" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><img src="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}" class="img-responsive" alt="Edition Office Fitouts"></a>
+                                    <a class="portfolio-img-demo" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><img src="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}" class="img-responsive" alt="<?php $Category = App\Category::find($portfolio->service) ?> {{$Category->cat}}"></a>
                                     <div class="project-info">
                                         <a href="#"><h4 class="title-project text-cap text-cap">{{$portfolio->title}}</h4></a>
                                         <a href="#" class="cateProject">{{$portfolio->location}}</a>
