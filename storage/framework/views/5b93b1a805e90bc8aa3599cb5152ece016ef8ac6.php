@@ -32,24 +32,38 @@
                                 <?php endif; ?>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             
-                </div> <!-- End Project Fillter -->
-						<!-- <div class="container"> -->
-							<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
-                                    <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $portfolio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-									<div class="element-item  cat_<?php echo e($portfolio->service); ?>">
-										<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>" class="img-responsive" alt="Edition Office Fitouts"></a>
-                                        <div class="project-info">
-                                            <a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($portfolio->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($portfolio->title); ?></h4></a>
-                                            <a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($portfolio->slug); ?>" class="cateProject"><?php echo e($portfolio->location); ?></a>
-                                            <a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($portfolio->slug); ?>"><h5 class="title-project text-cap text-cap"><?php $Category = App\Category::find($portfolio->service) ?> <?php echo e($Category->cat); ?> </h5></a>
-                                        </div>
-									</div>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-								
-							</div>  <!-- End project Container -->
-                        <!-- </div> -->
+                    </div> <!-- End Project Fillter -->
+                    <!-- <div class="container"> -->
+                        <div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
+                                <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $portfolio): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="element-item  cat_<?php echo e($portfolio->service); ?>">
+                                    <a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>"><img src="<?php echo e(url('/')); ?>/uploads/portfolio/<?php echo e($portfolio->image_one); ?>" class="img-responsive" alt="Edition Office Fitouts"></a>
+                                    <div class="project-info">
+                                        <a href="#"><h4 class="title-project text-cap text-cap"><?php echo e($portfolio->title); ?></h4></a>
+                                        <a href="#" class="cateProject"><?php echo e($portfolio->location); ?></a>
+                                        <a href="#"><h5 class="title-project text-cap text-cap"><?php $Category = App\Category::find($portfolio->service) ?> <?php echo e($Category->cat); ?> </h5></a>
+                                    </div>
+                                </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            
+                        </div>  <!-- End project Container -->
+                    <!-- </div> -->
 					</div> <!-- End  -->
 					<div class="clearfix mgt60"></div>
+                    <div class="container" >
+                        <nav class="woocommerce-pagination padding-top-30">
+                            <ul class="page-numbers pagination">
+                                <li><a class="current" href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="threedots">...</li>
+                                <li><a href="#">25</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
 					
 				</section>
 	

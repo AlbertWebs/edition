@@ -381,7 +381,7 @@ class HomeController extends Controller
             $Message->content = $message;
             
              //Send Mail Notification
-             ReplyMessage::mailNotificaton($name, $email, $subject, $message);
+            //  ReplyMessage::mailNotificaton($name, $email, $subject, $message);
 
 
             $Message->save();
@@ -421,7 +421,7 @@ class HomeController extends Controller
             $Message->content = $message;
             
              //Send Mail Notification
-             ReplyMessage::mailNotificatons($name, $email, $subject, $message, $phone, $services, $type);
+            //  ReplyMessage::mailNotificatons($name, $email, $subject, $message, $phone, $services, $type);
 
 
             $Message->save();
