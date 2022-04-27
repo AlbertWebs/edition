@@ -1,5 +1,6 @@
 @if ($paginator->hasPages())
-    <ul class="panigation-contain">
+<nav class="woocommerce-pagination padding-top-30">
+    <ul class="page-numbers pagination">
         {{-- Previous Page Link --}} 
         @if ($paginator->onFirstPage())
             <!-- <li class="page-item disabled"><a class="link-page">Prev</a></li> -->
@@ -20,7 +21,7 @@
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <li><span class="current-page">{{ $page }}</span></a></li>
+                        <li><a class="current" href="{{ $url }}"><span class="current">{{ $page }}</span></a></li>
                     @else
                         <li><a class="link-page" href="{{ $url }}">{{ $page }}</a></li>
                     @endif
@@ -36,4 +37,5 @@
             <!-- <li><a class="link-page" href="#">Next</a></li> -->
         @endif
     </ul>
+</nav>
 @endif

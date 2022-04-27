@@ -108,7 +108,6 @@
                     
                 </li>
             
-
                 <!-- SLIDE  -->
                 <li data-transition="parallaxtoright" data-masterspeed="1000" >
 								
@@ -162,8 +161,8 @@
                     
                 </li>
                
-                            <!-- SLIDE  -->
-                 <li data-transition="parallaxtoright" data-masterspeed="1000" >
+                <!-- SLIDE  -->
+                <li data-transition="parallaxtoright" data-masterspeed="1000" >
                                                 
                     <!-- MAIN IMAGE -->
                     <img src="{{url('/')}}/uploads/sliders/slider-6.webp"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
@@ -215,9 +214,7 @@
                     
                 </li>
 
-             
-
-                        <!-- SLIDE  -->
+                <!-- SLIDE  -->
                 <li data-transition="fade" data-masterspeed="1000"  >
                     
                     <!-- MAIN IMAGE -->

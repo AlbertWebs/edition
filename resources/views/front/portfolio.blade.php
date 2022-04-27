@@ -52,18 +52,7 @@
 					</div> <!-- End  -->
 					<div class="clearfix mgt60"></div>
                     <div class="container" >
-                        <nav class="woocommerce-pagination padding-top-30">
-                            <ul class="page-numbers pagination">
-                                <li><a class="current" href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li class="threedots">...</li>
-                                <li><a href="#">25</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </nav>
+                        <?php echo $Portfolio ?>
                     </div>
 					
 				</section>
