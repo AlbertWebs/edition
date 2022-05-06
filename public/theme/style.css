@@ -5491,6 +5491,11 @@ figure .ot-btn {
   padding: 20px;
 }
 
+.portfolio-grid-v2-4-col-warp .portfolio-grid-v2-4-col-container .element-item {
+  width: 25%;
+  padding: 10px;
+}
+
 .portfolio-grid-v2-3-col-warp .portfolio-grid-v2-3-col-container .project-info {
   /* width: 33.333%; */
   padding: 20px;
@@ -12175,8 +12180,8 @@ ul.social-fix  li a{
 } */
 
 .port-image{
-  width:490px !important;
-  height:330px !important;
+  /* width:490px !important;
+  height:330px !important; */
 }
 
 .port-image img{

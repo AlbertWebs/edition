@@ -171,7 +171,7 @@
 					<h3>Our Portfolio</h3>
 				</div>
 				<!--  -->
-				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
+				<div class="lastest-project-warp portfolio-grid-v2-4-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
                                     <?php 
 										$ServicesList = DB::table('category')->get();
@@ -184,17 +184,17 @@
 						</div> <!-- End Project Fillter -->
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
-						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
+						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-4-col-container">
 				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<div class="element-item cat_<?php echo e($port->service); ?>">
-									<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>">
+									<a class="portfolio-img-demo" href="#">
 										<img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive port-image" alt="<?php echo e($port->title); ?>">
 									</a>
 									<div class="project-info">
-										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
-										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>" class="cateProject"><?php echo e($port->location); ?></a>
-										<a href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> <?php echo e($Category->cat); ?> </h5></a>
+										<a href="#"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
+										<a href="#" class="cateProject"><?php echo e($port->location); ?></a>
+										<a href="#"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> <?php echo e($Category->cat); ?> </h5></a>
 									</div>
 								</div>
                          

@@ -172,7 +172,7 @@
 					<h3>Our Portfolio</h3>
 				</div>
 				<!--  -->
-				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
+				<div class="lastest-project-warp portfolio-grid-v2-4-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
                                     <?php 
 										$ServicesList = DB::table('category')->get();
@@ -185,17 +185,17 @@
 						</div> <!-- End Project Fillter -->
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
-						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
+						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-4-col-container">
 				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 @foreach($Portfolio as $port)
 								<div class="element-item cat_{{$port->service}}">
-									<a class="portfolio-img-demo" href="{{url('/')}}/portfolio/{{$port->slug}}">
+									<a class="portfolio-img-demo" href="#">
 										<img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive port-image" alt="{{$port->title}}">
 									</a>
 									<div class="project-info">
-										<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
-										<a href="{{url('/')}}/portfolio/{{$port->slug}}" class="cateProject">{{$port->location}}</a>
-										<a href="{{url('/')}}/portfolio/{{$port->slug}}"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> {{$Category->cat}} </h5></a>
+										<a href="#"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
+										<a href="#" class="cateProject">{{$port->location}}</a>
+										<a href="#"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> {{$Category->cat}} </h5></a>
 									</div>
 								</div>
                          
