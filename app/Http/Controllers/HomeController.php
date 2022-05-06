@@ -147,7 +147,7 @@ class HomeController extends Controller
             Twitter::setTitle('' . $Settings->sitename . ' - ' . $Settings->welcome . '');
             Twitter::setSite('' . $Settings->twitter . '');
 
-            $Portfolio = DB::table('portfolio')->paginate('10');
+            $Portfolio = DB::table('portfolio')->orderBy('id','DESC')->paginate('10');
            
             $page_name = 'Our Portfolio';
             $page_title = 'Home Page';
