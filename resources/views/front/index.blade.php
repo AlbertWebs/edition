@@ -174,8 +174,9 @@
 				<!--  -->
 				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
-                                    <?php $ServicesList = DB::table('category')->get(); ?>
-                                    
+                                    <?php 
+										$ServicesList = DB::table('category')->get();
+									?>
 									<a href="#" data-filter="*" class="current text-cap"><h4>All Projects</h4></a>
                                     @foreach($ServicesList as $serlist)
 									<a href="#" data-filter=".cat_{{$serlist->id}}" class="text-cap"><h4>{{$serlist->cat}}</h4></a>
@@ -185,8 +186,7 @@
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
-				                <?php $Portfolio = DB::table('portfolio')->limit('12')->get(); ?>
-                       
+				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 @foreach($Portfolio as $port)
 								<div class="element-item cat_{{$port->service}}">
 									<a class="portfolio-img-demo" href="{{url('/')}}/portfolio/{{$port->slug}}">

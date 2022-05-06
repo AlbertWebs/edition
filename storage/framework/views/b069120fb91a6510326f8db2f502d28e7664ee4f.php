@@ -173,8 +173,9 @@
 				<!--  -->
 				<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix wow fadeInRight" data-wow-delay=".85s">
 						<div class="projectFilter project-terms line-effect-2">
-                                    <?php $ServicesList = DB::table('category')->get(); ?>
-                                    
+                                    <?php 
+										$ServicesList = DB::table('category')->get();
+									?>
 									<a href="#" data-filter="*" class="current text-cap"><h4>All Projects</h4></a>
                                     <?php $__currentLoopData = $ServicesList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $serlist): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<a href="#" data-filter=".cat_<?php echo e($serlist->id); ?>" class="text-cap"><h4><?php echo e($serlist->cat); ?></h4></a>
@@ -184,8 +185,7 @@
 						<center><div id="box"></div></center>
 					<!-- <div class="container"> -->
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
-				                <?php $Portfolio = DB::table('portfolio')->limit('12')->get(); ?>
-                       
+				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 								<div class="element-item cat_<?php echo e($port->service); ?>">
 									<a class="portfolio-img-demo" href="<?php echo e(url('/')); ?>/portfolio/<?php echo e($port->slug); ?>">
