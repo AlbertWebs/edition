@@ -187,21 +187,17 @@
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-4-col-container">
 				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 <?php $__currentLoopData = $Portfolio; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $port): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-								<div class="element-item cat_<?php echo e($port->service); ?>">
-									<a class="portfolio-img-demo" href="#">
+								<div class="element-item cat_<?php echo e($port->service); ?>" id="lightgallery" data-src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>">
+									<a target="new" class="portfolio-img-demo" href="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>">
 										<img src="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="img-responsive port-image" alt="<?php echo e($port->title); ?>">
 									</a>
 									<div class="project-info">
-										<a href="#"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
-										<a href="#" class="cateProject"><?php echo e($port->location); ?></a>
-										<a href="#"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> <?php echo e($Category->cat); ?> </h5></a>
+										<a target="new" href="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>"><h4 class="title-project text-cap text-cap"><?php echo e($port->title); ?></h4></a>
+										<a target="new" href="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>" class="cateProject"><?php echo e($port->location); ?></a>
+										<a target="new" href="<?php echo e(url('/uploads/portfolio/')); ?>/<?php echo e($port->image_one); ?>"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> <?php echo e($Category->cat); ?> </h5></a>
 									</div>
 								</div>
-                         
 							    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-								
-							
-							
 						</div>  <!-- End project Container -->
 					<!-- </div> -->
 				</div> <!-- End  -->

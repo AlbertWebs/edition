@@ -20,7 +20,7 @@
 						<h3>Our Portfolio</h3> 
 					</div> -->
 					<!--  -->
-					<div class="lastest-project-warp portfolio-grid-v2-3-col-warp clearfix">
+					<div class="lastest-project-warp portfolio-grid-v2-4-col-warp clearfix">
                         <div class="projectFilter project-terms line-effect-2">
                             <?php $ServicesList = DB::table('category')->get(); ?>
                             
@@ -35,14 +35,14 @@
                             
                     </div> <!-- End Project Fillter -->
                     <!-- <div class="container"> -->
-                        <div class="bg-grey clearfix projectContainer portfolio-grid-v2-3-col-container">
+                        <div class="bg-grey clearfix projectContainer portfolio-grid-v2-4-col-container">
                                 @foreach($Portfolio as $portfolio)
                                 <div class="element-item  cat_{{$portfolio->service}}">
-                                    <a class="portfolio-img-demo" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><img src="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}" class="img-responsive" alt="<?php $Category = App\Category::find($portfolio->service) ?> {{$Category->cat}}"></a>
+                                    <a target="new" class="portfolio-img-demo" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><img src="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}" class="img-responsive" alt="<?php $Category = App\Category::find($portfolio->service) ?> {{$Category->cat}}"></a>
                                     <div class="project-info">
-                                        <a href="#"><h4 class="title-project text-cap text-cap">{{$portfolio->title}}</h4></a>
-                                        <a href="#" class="cateProject">{{$portfolio->location}}</a>
-                                        <a href="#"><h5 class="title-project text-cap text-cap"><?php $Category = App\Category::find($portfolio->service) ?> {{$Category->cat}} </h5></a>
+                                        <a target="new" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><h4 class="title-project text-cap text-cap">{{$portfolio->title}}</h4></a>
+                                        <a target="new" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}" class="cateProject">{{$portfolio->location}}</a>
+                                        <a target="new" href="{{url('/')}}/uploads/portfolio/{{$portfolio->image_one}}"><h5 class="title-project text-cap text-cap"><?php $Category = App\Category::find($portfolio->service) ?> {{$Category->cat}} </h5></a>
                                     </div>
                                 </div>
                                 @endforeach

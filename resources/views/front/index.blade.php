@@ -188,21 +188,17 @@
 						<div class="bg-grey clearfix projectContainer portfolio-grid-v2-4-col-container">
 				                <?php $Portfolio = DB::table('portfolio')->inRandomOrder()->limit('12')->get(); ?>
                                 @foreach($Portfolio as $port)
-								<div class="element-item cat_{{$port->service}}">
-									<a class="portfolio-img-demo" href="#">
+								<div class="element-item cat_{{$port->service}}" id="lightgallery" data-src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}">
+									<a target="new" class="portfolio-img-demo" href="{{url('/uploads/portfolio/')}}/{{$port->image_one}}">
 										<img src="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="img-responsive port-image" alt="{{$port->title}}">
 									</a>
 									<div class="project-info">
-										<a href="#"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
-										<a href="#" class="cateProject">{{$port->location}}</a>
-										<a href="#"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> {{$Category->cat}} </h5></a>
+										<a target="new" href="{{url('/uploads/portfolio/')}}/{{$port->image_one}}"><h4 class="title-project text-cap text-cap">{{$port->title}}</h4></a>
+										<a target="new" href="{{url('/uploads/portfolio/')}}/{{$port->image_one}}" class="cateProject">{{$port->location}}</a>
+										<a target="new" href="{{url('/uploads/portfolio/')}}/{{$port->image_one}}"><h5 class="title-project text-cap text-cap"> <?php $Category = App\Category::find($port->service) ?> {{$Category->cat}} </h5></a>
 									</div>
 								</div>
-                         
 							    @endforeach
-								
-							
-							
 						</div>  <!-- End project Container -->
 					<!-- </div> -->
 				</div> <!-- End  -->

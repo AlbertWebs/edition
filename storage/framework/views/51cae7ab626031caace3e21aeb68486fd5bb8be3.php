@@ -78,6 +78,10 @@
 			
 			  gtag('config', 'UA-162810531-2');
 			</script>
+			
+			<link href="<?php echo e(asset('lightGallery/dist/css/lightgallery.css')); ?>" rel="stylesheet">
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	</head>
 	<body class="mainbody">
 	<!-- <main> -->
@@ -361,6 +365,15 @@
 			   "telephone": "0722 626626"
 			}
 		</script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#lightgallery').lightGallery();
+			});
+		</script>
+		<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+        <script src="<?php echo e(asset('lightGallery/dist/js/lightgallery-all.min.js')); ?>"></script>
+        <script src="<?php echo e(asset('lightGallery/lib/jquery.mousewheel.min.js')); ?>"></script>
 		
 	<!-- </main> -->
 	</body>
