@@ -173,11 +173,11 @@ class HomeController extends Controller
             foreach ($SEOSettings as $Settings) {
                 $Portfolio = DB::table('portfolio')->where('service',$cat->id)->paginate(24);
                 
-                SEOMeta::setTitle('' . $Settings->sitename . ' - ' . $Settings->intro . '');
+                SEOMeta::setTitle('' . $category . ' - ' . $Settings->intro . '');
                 SEOMeta::setDescription('Best interior Fitouts in Nairobi');
                 SEOMeta::setCanonical('' . $Settings->url . '');
                 OpenGraph::setDescription('' . $Settings->welcome . '');
-                OpenGraph::setTitle('' . $Settings->sitename . ' - ' . $Settings->welcome . '');
+                OpenGraph::setTitle('' . $category . ' - ' . $Settings->welcome . '');
                 OpenGraph::setUrl('' . $Settings->url . '');
                 OpenGraph::addProperty('type', 'articles');
                 Twitter::setTitle('' . $Settings->sitename . ' - ' . $Settings->welcome . '');
@@ -188,7 +188,7 @@ class HomeController extends Controller
                
                 $keywords = 'Hardwoord Fitouts';
                 $SEO = '
-                <title>Our Portfolio | Edition Investments | premier supplier of quality wood based building.</title>
+                <title>'.$category.' | Edition Investments | premier supplier of quality wood based building.</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <meta name="description" content="Portfolio Edition Investments is the premier supplier of quality wood based construction material. We mainly supply to retailers and property developers.  Learn more Edition Investments Our story Quality Hardwood The best quality hardwood products Over the years, we have built valuable relationships with architects and interior designers who trust&hellip;" />
                 <link rel="canonical" href="'.url('/our-work').'" />
