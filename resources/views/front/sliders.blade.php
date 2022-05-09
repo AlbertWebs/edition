@@ -7,7 +7,7 @@
                 <li data-transition="parallaxtoright" data-masterspeed="1000" >
 								
                     <!-- MAIN IMAGE -->
-                    <img src="{{url('/')}}/uploads/sliders/replacemtnt.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
+                    <img src="{{url('/')}}/uploads/sliders/replace.jpg"  alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10">							
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption heading-2 white-text" 							
