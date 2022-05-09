@@ -28,7 +28,7 @@
                          data-transform_in="y:80px;opacity:0;s:800;e:easeInOutCubic;" 
                           data-transform_out="y:80px;opacity:0;s:300;" 
                          data-start="1400" 
-                        >Flooring & Stairs
+                        >Bespoke Book Shelves
                     </div>
                     
                     <!-- LAYER NR. 3 -->
