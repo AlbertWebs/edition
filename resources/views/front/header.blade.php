@@ -33,7 +33,12 @@
                    
                 </li>
                    <li class="has-sub"><a href="{{url('/portfolio')}}"><span style="<?php if($page_name == 'Our Portfolio'){ echo "color:#f15825";} ?>">Portfolio </span></a>
-                   
+                    <ul class="navi-level-2 ">
+                        <?php $Serv = DB::table('category')->get(); ?>
+                        @foreach ($Serv as $ser)
+                        <li><a href="{{url('/')}}/our-work/{{$ser->cat}}">{{$ser->cat}}</a></li>
+                        @endforeach
+                    </ul>
                    </li>
                 
                 <li class="has-sub"><a href="{{url('/news-and-blog')}}"><span style="<?php if($page_name == 'News'){ echo "color:#f15825";} ?>">News & Blog</span></a>

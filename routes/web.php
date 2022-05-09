@@ -38,6 +38,8 @@ Route::get('/products/{category}','HomeController@products');
 //Single Product
 Route::get('/product/{name}','HomeController@product');
 Route::get('/portfolio/{name}','HomeController@folio');
+Route::get('/our-work/{name}','HomeController@our_work');
+
 
 
 Route::get('/search','HomeController@search');

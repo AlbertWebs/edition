@@ -33,7 +33,12 @@
                    
                 </li>
                    <li class="has-sub"><a href="<?php echo e(url('/portfolio')); ?>"><span style="<?php if($page_name == 'Our Portfolio'){ echo "color:#f15825";} ?>">Portfolio </span></a>
-                   
+                    <ul class="navi-level-2 ">
+                        <?php $Serv = DB::table('category')->get(); ?>
+                        <?php $__currentLoopData = $Serv; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ser): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><a href="<?php echo e(url('/')); ?>/our-work/<?php echo e($ser->cat); ?>"><?php echo e($ser->cat); ?></a></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </ul>
                    </li>
                 
                 <li class="has-sub"><a href="<?php echo e(url('/news-and-blog')); ?>"><span style="<?php if($page_name == 'News'){ echo "color:#f15825";} ?>">News & Blog</span></a>
