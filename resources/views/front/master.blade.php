@@ -199,6 +199,7 @@
 				}
 			</style> --}}
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			
 	</head>
 	<body class="mainbody">
 	<!-- <main> -->
@@ -347,12 +348,14 @@
 	 </script>
 	<!-- hide widget -->
 
+	{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
 	<!-- Submit comment -->
     <script type="text/javascript">
 	   //    
 	   $(document).ready(function(){  
 		   alert(a)  
 			$('#alert-success').hide();
+		
 		});
 	   // this is the id of the form
 		$("#commentform").submit(function(e) {
@@ -504,6 +507,48 @@
 		<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
         <script src="{{asset('lightGallery/dist/js/lightgallery-all.min.js')}}"></script>
         <script src="{{asset('lightGallery/lib/jquery.mousewheel.min.js')}}"></script>
+		{{-- Master Submit Form --}}
+		
+		<script>
+			// 
+			$(document).ready(function(){
+				alert('hh')
+			});
+			$("form").each(function() {
+				$(this).find(':input[type="submit"]').prop('disabled', true);
+			});
+			function correctCaptcha() {
+				$("form").each(function() {
+					$(this).find(':input[type="submit"]').prop('disabled', false);
+				});
+			}
+			function enableBtn(){
+			document.getElementById("button1").disabled = false;
+			}
+			// 
+			
+			$("#contact").submit(function(e) {
+				e.preventDefault(); // prevent actual form submit
+				$("#Loading").html("Working...");
+				var form = $(this);
+				var url = form.attr('action'); //get submit url [replace url here if desired]
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: form.serialize(), // serializes form input
+					success: function(data){
+						console.log(data);
+						$("#Loading").html("Done!");
+						// Refresh
+						setTimeout(function() {
+							location.reload();
+						}, 1000);
+						// Success
+					}
+				});
+			});
+		</script>
+		{{-- Master Submit Form --}}
 		{{--  --}}
 	<!-- </main> -->
 	</body>

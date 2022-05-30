@@ -82,6 +82,7 @@
 			<link href="<?php echo e(asset('lightGallery/dist/css/lightgallery.css')); ?>" rel="stylesheet">
 			
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			
 	</head>
 	<body class="mainbody">
 	<!-- <main> -->
@@ -217,12 +218,14 @@
 	 </script>
 	<!-- hide widget -->
 
+	
 	<!-- Submit comment -->
     <script type="text/javascript">
 	   //    
 	   $(document).ready(function(){  
 		   alert(a)  
 			$('#alert-success').hide();
+		
 		});
 	   // this is the id of the form
 		$("#commentform").submit(function(e) {
@@ -374,6 +377,45 @@
 		<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
         <script src="<?php echo e(asset('lightGallery/dist/js/lightgallery-all.min.js')); ?>"></script>
         <script src="<?php echo e(asset('lightGallery/lib/jquery.mousewheel.min.js')); ?>"></script>
+		
+		
+		<script>
+			// 
+			$(document).ready(function(){
+				alert('hh')
+			});
+			$("form").each(function() {
+				$(this).find(':input[type="submit"]').prop('disabled', true);
+			});
+			function correctCaptcha() {
+				$("form").each(function() {
+					$(this).find(':input[type="submit"]').prop('disabled', false);
+				});
+			}
+			// 
+			
+			$("#contact").submit(function(e) {
+				e.preventDefault(); // prevent actual form submit
+				$("#Loading").html("Working...");
+				var form = $(this);
+				var url = form.attr('action'); //get submit url [replace url here if desired]
+				$.ajax({
+					type: "POST",
+					url: url,
+					data: form.serialize(), // serializes form input
+					success: function(data){
+						console.log(data);
+						$("#Loading").html("Done!");
+						// Refresh
+						setTimeout(function() {
+							location.reload();
+						}, 1000);
+						// Success
+					}
+				});
+			});
+		</script>
+		
 		
 	<!-- </main> -->
 	</body>

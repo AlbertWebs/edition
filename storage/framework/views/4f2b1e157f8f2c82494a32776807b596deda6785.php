@@ -24,34 +24,44 @@
 													  <div class="alert alert-danger"><?php echo e(Session::get('messageError')); ?></div>
 									   <?php endif; ?>
 										</center>
-                                    <form class="form-inline form-contact-arc" name="contact" method="post" action="<?php echo e(url('submitMessage')); ?>">
+                                    <form class="form-inline form-contact-arc" name="contact" id="contact" method="post" action="<?php echo e(url('submitMessage')); ?>">
 										<?php echo e(csrf_field()); ?>
 
 										<div class="row">
 											<div class="form-group col-sm-12 " style="padding:15px">
-											<input type="text" class="form-contraol dotted-input" name="name" id="name" placeholder="Name:">
+											<input type="text" class="form-contraol dotted-input" name="name" id="name" placeholder="Name:" required>
 											</div>
 											<div class="form-group col-sm-12" style="padding:15px">
-											<input type="email" class="dotted-input" name="email" id="email" placeholder="Email:" >
+											<input type="email" class="dotted-input" name="email" id="email" placeholder="Email:" required>
 											</div>
 											<div class="form-group col-sm-12" style="padding:15px">
-											<input type="text" class="dotted-input" name="phone" id="phone" placeholder="Phone Number:" >
+											<input type="text" class="dotted-input" name="phone" id="phone" placeholder="Phone Number:" required>
 											</div>
 											<div class="form-group col-sm-12" style="padding:15px">
-											<input type="text" class="dotted-input" name="subject" id="yourEmail" placeholder="Subject" >
+											<input type="text" class="dotted-input" name="subject" id="yourEmail" placeholder="Subject" required>
 											</div>
 											<div class="form-group" style="display: none;">
 												<label for="faxonly">Fax Only
 												 <input type="checkbox" name="faxonly" id="faxonly" />
 												</label>
-											   </div>
+											</div>
+											
 										</div>
 										<div class="input-content" style="padding:15px">
 											<div class="form-group form-textarea">
 												<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" ></textarea>
 											</div>
 										</div>
-										<button  class="ot-btn btn-main-color btn-long text-cap btn-submit">SUBMIT</button>
+										
+										<div class="form-group col-sm-12" style="padding:15px" id="TheCapcha">
+											
+												<div class="g-recaptcha" data-sitekey="6Ldt-S0gAAAAAOQ__8qFPWy0hdD2NKyi3COPoY0h" data-callback="correctCaptcha"></div>
+												<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+											
+										</div>
+										
+										<p style="color:#ffffff" id="Loading"></p>
+										<button  class="ot-btn btn-main-color btn-long text-cap btn-submit" disabled="disabled">SUBMIT</button>
 									</form> 
                                 </div>
                             </div>
