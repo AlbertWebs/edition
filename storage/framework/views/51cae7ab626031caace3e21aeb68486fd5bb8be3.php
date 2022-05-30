@@ -223,8 +223,7 @@
     <script type="text/javascript">
 	   //    
 	   $(document).ready(function(){  
-		   alert(a)  
-			$('#alert-success').hide();
+		  
 		
 		});
 	   // this is the id of the form
@@ -380,20 +379,7 @@
 		
 		
 		<script>
-			// 
-			$(document).ready(function(){
-				alert('hh')
-			});
-			$("form").each(function() {
-				$(this).find(':input[type="submit"]').prop('disabled', true);
-			});
-			function correctCaptcha() {
-				$("form").each(function() {
-					$(this).find(':input[type="submit"]').prop('disabled', false);
-				});
-			}
-			// 
-			
+					
 			$("#contact").submit(function(e) {
 				e.preventDefault(); // prevent actual form submit
 				$("#Loading").html("Working...");

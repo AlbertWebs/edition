@@ -62,21 +62,14 @@
 										</div>
 										{{--  --}}
 										<script>
-												// 
-			
-												$("form").each(function() {
-													$(this).find(':input[type="submit"]').prop('disabled', true);
-												});
-												function correctCaptcha() {
-													$("form").each(function() {
-														$(this).find(':input[type="submit"]').prop('disabled', false);
-													});
-												}
-											
-												// 
+											function correctCaptcha(){
+												var btn = document.getElementById("Button");
+                                                btn.disabled = false;
+											}
 										</script>
+										
 										<p style="color:#ffffff" id="Loading"></p>
-										<button  class="ot-btn btn-main-color btn-long text-cap btn-submit" disabled="disabled">SUBMIT</button>
+										<input type="submit"  class="ot-btn btn-main-color btn-long text-cap btn-submit" id="Button" disabled="disabled">
 									</form> 
                                 </div>
                             </div>

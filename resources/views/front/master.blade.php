@@ -353,8 +353,7 @@
     <script type="text/javascript">
 	   //    
 	   $(document).ready(function(){  
-		   alert(a)  
-			$('#alert-success').hide();
+		  
 		
 		});
 	   // this is the id of the form
@@ -509,7 +508,8 @@
         <script src="{{asset('lightGallery/lib/jquery.mousewheel.min.js')}}"></script>
 		{{-- Master Submit Form --}}
 		
-		<script>			
+		<script>
+					
 			$("#contact").submit(function(e) {
 				e.preventDefault(); // prevent actual form submit
 				$("#Loading").html("Working...");

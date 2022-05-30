@@ -52,6 +52,7 @@
 												<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" ></textarea>
 											</div>
 										</div>
+									
 										
 										<div class="form-group col-sm-12" style="padding:15px" id="TheCapcha">
 											
@@ -60,8 +61,15 @@
 											
 										</div>
 										
+										<script>
+											function correctCaptcha(){
+												var btn = document.getElementById("Button");
+                                                btn.disabled = false;
+											}
+										</script>
+										
 										<p style="color:#ffffff" id="Loading"></p>
-										<button  class="ot-btn btn-main-color btn-long text-cap btn-submit" disabled="disabled">SUBMIT</button>
+										<input type="submit"  class="ot-btn btn-main-color btn-long text-cap btn-submit" id="Button" disabled="disabled">
 									</form> 
                                 </div>
                             </div>
