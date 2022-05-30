@@ -509,24 +509,7 @@
         <script src="{{asset('lightGallery/lib/jquery.mousewheel.min.js')}}"></script>
 		{{-- Master Submit Form --}}
 		
-		<script>
-			// 
-			$(document).ready(function(){
-				alert('hh')
-			});
-			$("form").each(function() {
-				$(this).find(':input[type="submit"]').prop('disabled', true);
-			});
-			function correctCaptcha() {
-				$("form").each(function() {
-					$(this).find(':input[type="submit"]').prop('disabled', false);
-				});
-			}
-			function enableBtn(){
-			document.getElementById("button1").disabled = false;
-			}
-			// 
-			
+		<script>			
 			$("#contact").submit(function(e) {
 				e.preventDefault(); // prevent actual form submit
 				$("#Loading").html("Working...");

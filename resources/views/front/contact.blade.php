@@ -52,6 +52,7 @@
 												<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" ></textarea>
 											</div>
 										</div>
+									
 										{{--  --}}
 										<div class="form-group col-sm-12" style="padding:15px" id="TheCapcha">
 											{{-- <div class="col-lg-12 col-md-12" id="TheCapcha"> --}}
@@ -60,6 +61,20 @@
 											{{-- </div> --}}
 										</div>
 										{{--  --}}
+										<script>
+												// 
+			
+												$("form").each(function() {
+													$(this).find(':input[type="submit"]').prop('disabled', true);
+												});
+												function correctCaptcha() {
+													$("form").each(function() {
+														$(this).find(':input[type="submit"]').prop('disabled', false);
+													});
+												}
+											
+												// 
+										</script>
 										<p style="color:#ffffff" id="Loading"></p>
 										<button  class="ot-btn btn-main-color btn-long text-cap btn-submit" disabled="disabled">SUBMIT</button>
 									</form> 
