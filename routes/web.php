@@ -15,6 +15,8 @@
 
 Route::get('/','HomeController@index');
 Route::get('/home','HomeController@index');
+Route::get('/send-sms','SMSController@sendSms');
+
 // New Routes
 
 // All Products

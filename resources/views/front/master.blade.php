@@ -522,10 +522,15 @@
 					success: function(data){
 						console.log(data);
 						$("#Loading").html("Done!");
+						$('#name').val('');
+						$('#email').val('');
+						$('#phone').val('');
+						$('#yourEmail').val('');
+						$('#textarea').val('');
 						// Refresh
-						setTimeout(function() {
-							location.reload();
-						}, 1000);
+						// setTimeout(function() {
+						// 	location.reload();
+						// }, 1000);
 						// Success
 					}
 				});

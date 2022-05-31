@@ -52,6 +52,32 @@
 												<textarea id="textarea" class="form-control" name="message" rows="6" placeholder="Your Messages" ></textarea>
 											</div>
 										</div>
+
+										
+										<?php
+										$ops = array('-', '+');
+										$answer = -1;
+									
+										$num1 = rand(0, 15);
+										$num2 = rand(0, 15);
+
+										$answer = $num1 + $num2;
+										
+										?>
+										<div id="math" style="display:none">
+											<input type="hidden" name="correct_answer" id="correct_answer" value="<?php echo e($answer); ?>">
+											<input required class="form-control" value="<?php echo e($answer); ?>" type="hidden" id="verify_contact" name="verify_contacts">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="form-group">
+														<label style="color:#ffffff">Are you human? <?php echo e($num1); ?> + <?php echo e($num2); ?> =</label>
+														<input required class="form-control" value="" type="text" id="verify_contact" name="verify_contact">
+													</div>
+												</div>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<br>
 									
 										
 										<div class="form-group col-sm-12" style="padding:15px" id="TheCapcha">
@@ -65,6 +91,8 @@
 											function correctCaptcha(){
 												var btn = document.getElementById("Button");
                                                 btn.disabled = false;
+												document.getElementById("math").style.display = "block";
+												document.getElementById("TheCapcha").style.display = "none";
 											}
 										</script>
 										

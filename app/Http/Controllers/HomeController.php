@@ -397,43 +397,43 @@ class HomeController extends Controller
 
     public function submitMessage(Request $request)  
     {
-     
-        if ($request->faxonly) {
-            Session::flash('message', "Your Message Has Been Sent");
-            return Redirect::back();
-        }else{
-            $email = $request->email;
-            $name = $request->name;
-            $phone = $request->phone;
-            $message = $request->message;
-            $subject = $request->subject;
-    
+        if($request->verify_contact == $request->verify_contacts){
+            if ($request->faxonly) {
+                Session::flash('message', "Your Message Has Been Sent");
+                return Redirect::back();
+            }else{
+                $email = $request->email;
+                $name = $request->name;
+                $phone = $request->phone;
+                $message = $request->message;
+                $subject = $request->subject;
         
-     
-            $Message = new Message;
-            $Message->name = $name;
-            $Message->email = $email;
-            $Message->mobile = $phone;
-            $Message->subject = $subject;
-            $Message->content = $message;
             
-             //Send Mail Notification
-             ReplyMessage::mailNotificaton($name, $email, $subject, $message);
-
-
-            $Message->save();
-            $Notifications = new Notifications;
-            $Notifications->type = 'Message';
-            $Notifications->content = 'You have a new Message';
-            $Notifications->save();
-            
+         
+                $Message = new Message;
+                $Message->name = $name;
+                $Message->email = $email;
+                $Message->mobile = $phone;
+                $Message->subject = $subject;
+                $Message->content = $message;
+                
+                //Send Mail Notification
+                ReplyMessage::mailNotificaton($name, $email, $subject, $message);
+    
+    
+                $Message->save();
+                $Notifications = new Notifications;
+                $Notifications->type = 'Message';
+                $Notifications->content = 'You have a new Message';
+                $Notifications->save();
+                
+                Session::flash('message', "Your Message Has Been Sent");
+                return Redirect::back();
+            }
+        }else{
             Session::flash('message', "Your Message Has Been Sent");
             return Redirect::back();
         }
-           
-        
-        
-        
     }
 
     public function getQuote(Request $request)  
